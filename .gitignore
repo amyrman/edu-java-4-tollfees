@@ -2,3 +2,6 @@
 /.gradle/
 /.classpath
 /.project
+/.vscode
+/target
+/build
