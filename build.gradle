@@ -1,15 +1,38 @@
 plugins {
     id 'java'
+    id "application"
 }
 
 repositories {
     mavenCentral()
 }
 
+apply plugin : "java" 
+ext {
+   javaMainClass = "edu.lernia.labb4.TollFeeCalculator"
+}
+
+application {
+    mainClass.set("edu.lernia.labb4.TollFeeCalculator")
+}
+
 test {
+    tasks.named('test', Test) {
     useJUnitPlatform()
+    }
+
+    testLogging {
+    showStandardStreams = true
+    events "passed", "skipped", "failed"
+    }
+    onOutput { descriptor, event ->
+      logger.lifecycle("Test: " + descriptor + " produced standard out/err: " + event.message )
+   }
+
 }
 
 dependencies {
+    testImplementation("org.assertj:assertj-core:3.24.2")
 	testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
