@@ -27,14 +27,14 @@ public class TollFeeCalculator {
     };
 
     public static int getTotalFeeCost(LocalDateTime[] dates) {
-    if (dates == null || dates.length == 0) { // Add weird functionality for no dates
-        return 0;
-    }
+        if (dates == null || dates.length == 0) { // Add weird functionality for no dates
+            return 0;
+        }
     
-    // Declarations
-    int totalFee = 0;
-    int highestFee = 0; // Add highestFee variable to store highest fee from several dates
-    LocalDateTime intervalStart = dates[0];
+        // Declarations
+        int totalFee = 0;
+        int highestFee = 0; // Add highestFee variable to store highest fee from several dates
+        LocalDateTime intervalStart = dates[0];
 
         for (LocalDateTime date : dates) {
             System.out.println(date.toString());
@@ -49,8 +49,8 @@ public class TollFeeCalculator {
             highestFee = Math.max(highestFee, fee);
             }
         }
-    totalFee += highestFee;
-    return totalFee;
+        totalFee += highestFee;
+        return totalFee;
     }
 
     public static int getTollFeePerPassing(LocalDateTime date) {
