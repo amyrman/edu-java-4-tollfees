@@ -23,9 +23,6 @@ public class TollFeeCalculator {
         }
     }
 
-    public TollFeeCalculator() { // Add default constructor for initializing tests
-    };
-
     public static int getTotalFeeCost(LocalDateTime[] dates) {
         if (dates == null || dates.length == 0) { // Add weird functionality for no dates
             return 0;

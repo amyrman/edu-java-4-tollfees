@@ -3,17 +3,11 @@ package edu.lernia.labb4;
 import static org.assertj.core.api.Assertions.*;
 
 import java.time.LocalDateTime;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 public class TollFeeCalculatorTest {
-
-    @BeforeEach
-    void setUp() {
-        new TollFeeCalculator();
-    }
 
     @Test
     void whenThereIsNoDates_thenThrowException() {
